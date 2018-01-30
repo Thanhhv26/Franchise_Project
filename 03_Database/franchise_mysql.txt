@@ -1,0 +1,152 @@
+CREATE DATABASE franchise;
+
+CREATE TABLE [franchise].[Tbl_admin](
+	[admin_id] [int] IDENTITY(1,1) NOT NULL,
+	[admin_f_name] [varchar](30) NULL,
+	[admin_l_name] [varchar](30) NULL,
+	[admin_email] [varchar](100) NULL,
+	[admin_password] [varchar](20) NULL,
+	[admin_con_no] [varchar](15) NULL,
+	[compnay_address] [varchar](100) NULL,
+	[admin_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_category](
+	[cat_id] [int] IDENTITY(1,1) NOT NULL,
+	[cat_name] [varchar](30) NULL,
+	[cat_photo] [varchar](300) NULL,
+	[cat_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_city](
+	[city_id] [int] IDENTITY(1,1) NOT NULL,
+	[city_name] [varchar](30) NULL,
+	[city_code] [varchar](10) NULL,
+	[city_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_Communicate](
+	[com_a_f_id] [int] IDENTITY(1,1) NOT NULL,
+	[franchise_id] [int] NULL,
+	[admin_id] [int] NULL,
+	[question] [varchar](max) NULL,
+	[answer] [varchar](max) NULL,
+	[com_date] [date] NULL,
+	[com_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_franchise](
+	[franchise_id] [int] IDENTITY(1,1) NOT NULL,
+	[franchise_owner_f_name] [varchar](30) NULL,
+	[franchise_owner_l_name] [varchar](30) NULL,
+	[franchise_name] [varchar](30) NULL,
+	[franchise_email] [varchar](100) NULL,
+	[franchise_password] [varchar](20) NULL,
+	[franchise_con_no] [varchar](15) NULL,
+	[franchise_address] [varchar](100) NULL,
+	[franchise_photo] [varchar](300) NULL,
+	[city_id] [int] NULL,
+	[join_date] [date] NULL,
+	[over_date] [date] NULL,
+	[franchise_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_Franchise_order](
+	[f_order_id] [int] IDENTITY(1,1) NOT NULL,
+	[cat_id] [int] NULL,
+	[row_m_id] [int] NULL,
+	[franchise_id] [int] NULL,
+	[row_m_price] [int] NULL,
+	[prod_quantity] [int] NULL,
+	[approv_quantity] [int] NULL,
+	[order_price] [int] NULL,
+	[order_date] [date] NULL,
+	[approv_date] [date] NULL,
+	[f_order_status] [bit] NULL,
+	[receive_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_inquiry](
+	[inquiry_id] [int] IDENTITY(1,1) NOT NULL,
+	[sender_f_name] [varchar](30) NULL,
+	[sender_l_name] [varchar](30) NULL,
+	[sender_email] [varchar](100) NULL,
+	[inquiry] [varchar](max) NULL,
+	[inquiry_date] [date] NULL,
+	[inquiry_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_order](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Product] [varchar](max) NULL,
+	[franchise_id] [int] NULL,
+	[user_id] [int] NULL,
+	[no_item] [int] NULL,
+	[order_date] [int] NULL,
+	[total_cost] [int] NULL,
+	[order_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_photo_gallery](
+	[photo_id] [int] IDENTITY(1,1) NOT NULL,
+	[photo_name] [varchar](100) NULL,
+	[photo_path] [varchar](100) NULL,
+	[photo_desc] [varchar](max) NULL,
+	[photo_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_product](
+	[prod_id] [int] IDENTITY(1,1) NOT NULL,
+	[prod_name] [varchar](30) NULL,
+	[cat_id] [int] NULL,
+	[prod_net_price] [int] NULL,
+	[prod_price] [int] NULL,
+	[prod_photo] [varchar](300) NULL,
+	[owner_part] [real] NULL,
+	[prod_desc] [varchar](max) NULL,
+	[prod_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_raw_material](
+	[raw_m_id] [int] IDENTITY(1,1) NOT NULL,
+	[cat_id] [int] NULL,
+	[material] [varchar](200) NULL,
+	[Unit] [varchar](10) NULL,
+	[Price] [int] NULL,
+	[row_m_status] [int] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_stock](
+	[stock_id] [int] IDENTITY(1,1) NOT NULL,
+	[cat_id] [int] NULL,
+	[row_m_id] [int] NULL,
+	[franchise_id] [int] NULL,
+	[Stock] [int] NULL,
+	[stock_fill_date] [date] NULL,
+	[stock_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_temp_sell_item](
+	[temp_id] [int] IDENTITY(1,1) NOT NULL,
+	[temp_prod_id] [int] NULL,
+	[temp_cat_id] [int] NULL,
+	[temp_Franchise_id] [int] NULL,
+	[temp_User_id] [int] NULL,
+	[temp_No_item] [int] NULL,
+	[temp_Total_cost] [int] NULL,
+	[temp_Sell_date] [date] NULL,
+	[temp_sell_status] [bit] NULL
+);
+
+CREATE TABLE [franchise].[Tbl_user](
+	[user_id] [int] IDENTITY(1,1) NOT NULL,
+	[franchise_id] [int] NULL,
+	[user_f_name] [varchar](30) NULL,
+	[user_l_name] [varchar](30) NULL,
+	[user_email] [varchar](100) NULL,
+	[user_psw] [varchar](15) NULL,
+	[user_con_no] [varchar](15) NULL,
+	[user_city_id] [int] NULL,
+	[user_address] [varchar](100) NULL,
+	[user_status] [bit] NULL
+);
