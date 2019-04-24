@@ -1,3 +1,0 @@
-http://localhost:8080/KenshinServerV2/Jushinsha/Top.xhtml?deviceCode=599
-update TRN_Jushin set JushinDate='20180119' where iPadDeviceNo=599 
-set JushinDate= ngay hien tai nhe
